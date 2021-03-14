@@ -1,4 +1,4 @@
-from twitter_api import twitter_search
+from twitter_api import search_tweets
 
 # Get 2 covid19 related tweets
-print(twitter_search("covid19", {"count":2}))
+print(search_tweets("covid19", {"count":2}))

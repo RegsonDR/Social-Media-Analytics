@@ -8,7 +8,7 @@ load_dotenv()
 TWITTER_BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN")
 
 # This is a wrapper for the search api: https://developer.twitter.com/en/docs/twitter-api/v1/tweets/search/api-reference/get-search-tweets
-def twitter_search(search_query, optional={}):
+def search_tweets(search_query, optional={}):
     if not search_query:
         return "Search query is required!"
     query_string = "q={}".format(search_query)
