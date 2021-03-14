@@ -13,17 +13,16 @@ def search_tweets(search_query, optional={}):
         return "Search query is required!"
     query_string = "q={}".format(search_query)
 
-    # Define defaults to be used, if not provided by optional dict
-    default_parameters = {"lang": "en", "result_type": "recent", "count": "1"}
-    final_parameters = {**default_parameters, **optional}
+    DEFAULT_PARAMETERS = {"lang": "en", "result_type": "recent", "count": "1"}
+    final_parameters = {**DEFAULT_PARAMETERS, **optional}
 
     # Add any other optional parameters (if supported by api)
-    api_options = ["geocode", "lang", "locale", "count",
-                           "until", "since_id", "max_id", "include_entities", "result_type"]
+    QUERY_OPTIONS = ["geocode", "lang", "locale", "count",
+                "until", "since_id", "max_id", "include_entities", "result_type"]
     for parameter in final_parameters:
-        if parameter not in api_options:
+        if parameter not in QUERY_OPTIONS:
             return "Invalid parameters passed: {}".format(parameter)
-        query_string += '&{}={}'.format(parameter , final_parameters[parameter])
+        query_string += '&{}={}'.format(parameter, final_parameters[parameter])
 
     # Send request
     payload = {}
