@@ -13,7 +13,7 @@ def search_tweets(search_query, optional={}):
         return "Search query is required!"
     query_string = "q={}".format(search_query)
 
-    DEFAULT_PARAMETERS = {"lang": "en", "result_type": "recent", "count": "1"}
+    DEFAULT_PARAMETERS = {"lang": "en", "result_type": "recent", "count": 100}
     final_parameters = {**DEFAULT_PARAMETERS, **optional}
 
     # Add any other optional parameters (if supported by api)
