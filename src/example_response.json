@@ -1,0 +1,122 @@
+{
+    "search_metadata": {
+        "completed_in": 0.02,
+        "count": 1,
+        "max_id": 1373313224087465986,
+        "max_id_str": "1373313224087465986",
+        "next_results": "?max_id=1373313224087465985&q=covid19&lang=en&count=1&include_entities=1&result_type=recent",
+        "query": "covid19",
+        "refresh_url": "?since_id=1373313224087465986&q=covid19&lang=en&result_type=recent&include_entities=1",
+        "since_id": 0,
+        "since_id_str": "0"
+    },
+    "statuses": [
+        {
+            "contributors": null,
+            "coordinates": null,
+            "created_at": "Sat Mar 20 16:39:22 +0000 2021",
+            "entities": {
+                "hashtags": [
+                    {
+                        "indices": [21, 29],
+                        "text": "COVID19"
+                    },
+                    {
+                        "indices": [126, 136],
+                        "text": "ArgusNews"
+                    }
+                ],
+                "symbols": [],
+                "urls": [],
+                "user_mentions": []
+            },
+            "favorite_count": 0,
+            "favorited": false,
+            "geo": null,
+            "id": 1373313224087465986,
+            "id_str": "1373313224087465986",
+            "in_reply_to_screen_name": null,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "is_quote_status": false,
+            "lang": "en",
+            "metadata": {
+                "iso_language_code": "en",
+                "result_type": "recent"
+            },
+            "place": null,
+            "retweet_count": 0,
+            "retweeted": false,
+            "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+            "text": "More than 4.36 crore #COVID19 vaccine doses administered; 16.12 lakh vaccine doses given till 7 PM today: Ministry of Health. #ArgusNews",
+            "truncated": false,
+            "user": {
+                "contributors_enabled": false,
+                "created_at": "Sat Dec 05 12:30:31 +0000 2020",
+                "default_profile": true,
+                "default_profile_image": false,
+                "description": "'https://t.co/szFTB2mfFE is the First 24X7 odia web channel launched on auspicious day of Akshaya Tritiya April 18, 2018.",
+                "entities": {
+                    "description": {
+                        "urls": [
+                            {
+                                "display_url": "ArgusNews.in",
+                                "expanded_url": "http://ArgusNews.in",
+                                "indices": [1, 24],
+                                "url": "https://t.co/szFTB2mfFE"
+                            }
+                        ]
+                    },
+                    "url": {
+                        "urls": [
+                            {
+                                "display_url": "argusnews.in",
+                                "expanded_url": "http://argusnews.in",
+                                "indices": [0, 23],
+                                "url": "https://t.co/69nHrtNLDH"
+                            }
+                        ]
+                    }
+                },
+                "favourites_count": 20,
+                "follow_request_sent": null,
+                "followers_count": 491,
+                "following": null,
+                "friends_count": 116,
+                "geo_enabled": false,
+                "has_extended_profile": false,
+                "id": 1335199667571679232,
+                "id_str": "1335199667571679232",
+                "is_translation_enabled": false,
+                "is_translator": false,
+                "lang": null,
+                "listed_count": 1,
+                "location": "Bhubaneswar",
+                "name": "Argus News",
+                "notifications": null,
+                "profile_background_color": "F5F8FA",
+                "profile_background_image_url": null,
+                "profile_background_image_url_https": null,
+                "profile_background_tile": false,
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/1335199667571679232/1615525496",
+                "profile_image_url": "http://pbs.twimg.com/profile_images/1349745062884720640/fxc-yLZo_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/1349745062884720640/fxc-yLZo_normal.jpg",
+                "profile_link_color": "1DA1F2",
+                "profile_sidebar_border_color": "C0DEED",
+                "profile_sidebar_fill_color": "DDEEF6",
+                "profile_text_color": "333333",
+                "profile_use_background_image": true,
+                "protected": false,
+                "screen_name": "ArgusNews_in",
+                "statuses_count": 3995,
+                "time_zone": null,
+                "translator_type": "none",
+                "url": "https://t.co/69nHrtNLDH",
+                "utc_offset": null,
+                "verified": false
+            }
+        }
+    ]
+}
