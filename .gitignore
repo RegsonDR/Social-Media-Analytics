@@ -115,3 +115,4 @@ dmypy.json
 
 # Ignore venv
 /sma
+.DS_Store
