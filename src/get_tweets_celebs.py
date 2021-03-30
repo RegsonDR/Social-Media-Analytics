@@ -1,8 +1,9 @@
 
 import pandas as pd
-import tweepy  
+import tweepy
 # CSV Names
-RAW_CSV_NAME = "raw_tweets_large.csv"
+RAW_CSV_NAME = "raw_tweets_celebs.csv"
+RAW_CSV_REPLIES_NAME = "raw_tweets_celebs_replies.csv"
 
 # Twitter API Credentials
 CONSUMER_KEY = "hnGPJx6xBsudTgwOAxd0UNGUW"
@@ -15,29 +16,60 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-# Query the API
-search_term = "FarmersProtest"
-max_items = 500
-result_type = "recent"
-lang = "en"
+USE_OLD_CSV = True
 
-# Do not include retweets, ensure tweet has 1 minimum retweet and is after September 2020        
-response = tweepy.Cursor(api.search, q=search_term+"-filter:retweets min_retweets:1 since:2020-09-01",
-                            result_type=result_type, lang=lang, tweet_mode="extended").items(max_items)
+if not USE_OLD_CSV:
+    # Query the API
+    search_term = "FarmersProtest"
+    # Twitter API only limits popular to top 30
+    max_items = 100
+    result_type = "popular"
+    lang = "en"
 
-# Extract only the required keys from the response
-tweets = [
-    [tweet.created_at,
-        tweet.full_text,
-        tweet.retweet_count,
-        tweet.favorite_count,
-        tweet.user.screen_name,
-        tweet.user.followers_count,
-        tweet.user.verified,
-        tweet.author.location
-    ] for tweet in response]
+    # Do not include retweets, ensure tweet has 1 minimum retweet and is after September 2020
+    response = tweepy.Cursor(api.search, q=search_term+"-filter:retweets min_retweets:1 since:2020-09-01 filter:verified",
+                             result_type=result_type, lang=lang, tweet_mode="extended").items(max_items)
 
-# Store as CSV for later
-tweets_df = pd.DataFrame(data=tweets, columns=["created_at", "text", "retweet_count", "favorite_count",
-"user_screen_name", "user_followers_count", "user_verified","country"])
-tweets_df.to_csv(RAW_CSV_NAME, quotechar='"', encoding='utf8', index = False, header=True)
+    # Extract only the required keys from the response
+    tweets = [
+        [tweet.id,
+            tweet.created_at,
+            tweet.full_text,
+            tweet.retweet_count,
+            tweet.favorite_count,
+            tweet.user.screen_name,
+            tweet.user.followers_count,
+            tweet.user.verified,
+            tweet.author.location
+         ] for tweet in response]
+
+    # Store as CSV for later
+    tweets_df = pd.DataFrame(data=tweets, columns=["id", "created_at", "text", "retweet_count", "favorite_count",
+                                                   "user_screen_name", "user_followers_count", "user_verified", "country"])
+    tweets_df.to_csv(RAW_CSV_NAME, quotechar='"',
+                     encoding='utf8', index=False, header=True)
+
+# tweets_df = pd.DataFrame(columns=["related_id", "id", "created_at", "text", "retweet_count", "favorite_count",
+#                                                 "user_screen_name", "user_followers_count", "user_verified", "country"])                                                
+# tweets_df.to_csv(RAW_CSV_REPLIES_NAME, quotechar='"', encoding='utf8', index=False, header=True)
+
+count = 1
+raw_tweets = pd.read_csv(RAW_CSV_NAME, quotechar='"', encoding='utf8')
+for tweet_id, name in zip(raw_tweets["id"], raw_tweets['user_screen_name']):
+    print(count)
+    count+=1
+    for tweet in tweepy.Cursor(api.search, q='to:'+name, tweet_mode="extended", result_type='recent', timeout=999999).items(500):
+        if hasattr(tweet, 'in_reply_to_status_id_str') and (tweet.in_reply_to_status_id_str == str(tweet_id)):
+            tweets_df = pd.DataFrame(data=[[
+                tweet_id,
+                tweet.id,
+                tweet.created_at,
+                tweet.full_text,
+                tweet.retweet_count,
+                tweet.favorite_count,
+                tweet.user.screen_name,
+                tweet.user.followers_count,
+                tweet.user.verified,
+                tweet.author.location
+            ]])
+            tweets_df.to_csv(RAW_CSV_REPLIES_NAME, quotechar='"', mode='a', encoding='utf8', index=False, header=False)
