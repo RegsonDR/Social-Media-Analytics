@@ -16,8 +16,8 @@ RAW_CSV_NAME = "raw_tweets_general_large.csv"
 tweets_df = pd.DataFrame(columns=["id", "date", "content", "username"])
 tweets_df.to_csv(RAW_CSV_NAME, quotechar='"', encoding='utf8', index = False, header=True)
 
-maxTweets = 50000
-for i, tweet in enumerate(sntwitter.TwitterSearchScraper('#FarmersProtest' + '-filter:retweets min_retweets:1 since:2020-09-01 until:2021-03-21').get_items()):
+maxTweets = 100000
+for i, tweet in enumerate(sntwitter.TwitterSearchScraper('#FarmersProtest' + '-filter:retweets min_retweets:1 since:2020-09-01 until:2021-03-31').get_items()):
     if i > maxTweets:
         break
     print(i)
