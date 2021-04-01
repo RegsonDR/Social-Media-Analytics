@@ -1,4 +1,4 @@
-# Social-Media-Analytics-COM61332
+# Social-Media-Analytics-COMP61332
  
 
 ## Repository Contents
