@@ -16,4 +16,4 @@
 1. What are the main concerns or topics that are being discussed related to farmers protest in India.
 2. What are the general reaction or sentiment of the crowd towards each topic.
 3. Which all celebrities voiced out their opinions about the issue? 
-4. How does the public (within and/or outside India) feel towards celebrities?
+4. How does the public feel towards celebrities?
