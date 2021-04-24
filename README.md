@@ -1,5 +1,5 @@
 # Social-Media-Analytics-COMP61332
- 
+Note: Twitter API keys have been revoked, you can generate your own copy from https://developer.twitter.com/en/docs/twitter-api
 
 ## Repository Contents
 * `main.ipynb` contains all the code, from obtaining twitter tweets to the sentimental analysis. This jupyter file contains comments and notes to explain each block and what is being done.
