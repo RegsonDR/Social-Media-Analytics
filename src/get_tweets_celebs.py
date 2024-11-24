@@ -6,10 +6,10 @@ RAW_CSV_NAME = "raw_tweets_celebs.csv"
 RAW_CSV_REPLIES_NAME = "raw_tweets_celebs_replies.csv"
 
 # Twitter API Credentials
-CONSUMER_KEY = "hnGPJx6xBsudTgwOAxd0UNGUW"
-CONSUMER_SECRET = "JcxhisQeF19hlEHRdeBifU3aL4R9DP9BWEMjYJ7MtnGcWaxn0p"
-ACCESS_KEY = "1249286455530123264-5LbTPxHcE8Hl3CHhWztOsycMGEViHT"
-ACCESS_SECRET = "4vdHhFP3odtZSUAKkK6GgPm7Vl03EHwvbP7cRTLFmQbFf"
+CONSUMER_KEY = ""
+CONSUMER_SECRET = ""
+ACCESS_KEY = ""
+ACCESS_SECRET = ""
 
 # Connect to API
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
